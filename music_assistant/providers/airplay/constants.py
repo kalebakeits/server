@@ -424,3 +424,11 @@ CLI_PROBLEM_MARKERS: Final[tuple[str, ...]] = ("error", "cannot", "failed", "una
 # A burst still gets through, which is what a real one-shot daemon failure is.
 PTP_DAEMON_WARN_BURST: Final[int] = 5
 PTP_DAEMON_WARN_WINDOW: Final[float] = 60.0
+
+# Apple groups: the AirPlay TXT records carry how the Home app grouped the devices.
+# An Apple TV home theater group: the Apple TV advertises psgid (persistent group id,
+# with psgtp/psgsz) and igl=1; its speakers advertise the same psgid plus pgid
+# (the group they are paired into) and pgmid (their slot). A stereo pair: both
+# speakers share tsid, gid is "<tsid>+<role>+<device>", gpn is the pair's name.
+APPLE_GROUP_HOME_THEATER: Final[str] = "home_theater"
+APPLE_GROUP_STEREO_PAIR: Final[str] = "stereo_pair"
